@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="./src/index.css" /> <!-- Make sure this path is correct -->
-  </head>
-  <body>
-    <div id="root"></div> <!-- This is where your React app will be mounted -->
-    <!-- Vite will automatically inject the compiled scripts here -->
-    <script type="module" src="/src/main.tsx"></script> <!-- Ensure this path is correct -->
-  </body>
+    <link rel="stylesheet" href="./src/index.css">
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#sequence-diagram">Sequence Diagram</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! My name is Philip and I am a Web Developer.</p>
+    </section>
+    <section id="sequence-diagram">
+      <h2>Sequence Diagram - Create New Project</h2>
+      <div class="sequence-diagram">
+          <div class="participant">User</div>
+          <div class="arrow">→</div>
+          <div class="participant">Browser</div>
+          <div class="arrow">→</div>
+          <div class="participant">Server</div>
+          <div class="arrow">←</div>
+          <div class="participant">Browser</div>
+          <div class="arrow">←</div>
+          <div class="participant">User</div>
+      </div>
+      <div class="messages">
+          <div>User clicks "Add New Project"</div>
+          <div>Browser sends POST request with project data</div>
+          <div>Server returns success response</div>
+          <div>Browser displays confirmation message</div>
+      </div>
+  </section>
+  
+
+    <section>
+        <h2>Add Projects</h2>
+        <script type="module">
+            import { postjson } from "./script.ts"; 
+            window.postjson = postjson;
+        </script>
+        <form onsubmit="postjson(event, this)">
+            <input name="title" type="text" placeholder="Project Name" required />
+            <input name="description" type="text" placeholder="Project Description" required />
+            <input name="date" type="date" required />
+            <input type="submit" value="Submit" />
+        </form>
+    </section>
+
+    <section>
+        <h2 id="projects">My Projects</h2>
+        <div id="projectsDiv"></div>
+        <script type="module">
+            import { handleProjects } from "./script.ts";
+            window.handleProjects = handleProjects;
+            handleProjects();
+        </script>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
+
+    <script type="module" src="./script.ts"></script> <!-- Use .js for browser compatibility -->
+</body>
 </html>
