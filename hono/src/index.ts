@@ -6,7 +6,7 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const app = new Hono();
 
-// Enable CORS for all routes
+
 app.use("*", cors());
 
 app.use("/statics/*", serveStatic({ root: "./" }));
@@ -43,7 +43,7 @@ app.post("/postjson", async (c) => {
   return c.text('Created!', 201);
 });
 
-// Change the port to 3000
+
 const port = 3000;
 
 console.log("Server is running on port 3000");

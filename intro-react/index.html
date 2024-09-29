@@ -17,32 +17,10 @@
             </ul>
         </nav>
     </header>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! My name is Philip and I am a Web Developer.</p>
-    </section>
-    <section id="sequence-diagram">
-      <h2>Sequence Diagram - Create New Project</h2>
-      <div class="sequence-diagram">
-          <div class="participant">User</div>
-          <div class="arrow">→</div>
-          <div class="participant">Browser</div>
-          <div class="arrow">→</div>
-          <div class="participant">Server</div>
-          <div class="arrow">←</div>
-          <div class="participant">Browser</div>
-          <div class="arrow">←</div>
-          <div class="participant">User</div>
-      </div>
-      <div class="messages">
-          <div>User clicks "Add New Project"</div>
-          <div>Browser sends POST request with project data</div>
-          <div>Server returns success response</div>
-          <div>Browser displays confirmation message</div>
-      </div>
   </section>
-  
 
     <section>
         <h2>Add Projects</h2>
@@ -72,6 +50,6 @@
         <p>&copy; 2024 My Portfolio</p>
     </footer>
 
-    <script type="module" src="./script.ts"></script> <!-- Use .js for browser compatibility -->
+    <script type="module" src="./script.ts"></script> 
 </body>
 </html>
